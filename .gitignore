@@ -1,0 +1,5 @@
+.idea/*
+*.iml
+*.claass
+out/*
+.DS_Store
