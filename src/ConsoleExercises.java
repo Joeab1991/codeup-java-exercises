@@ -64,7 +64,7 @@ public class ConsoleExercises {
 		String item1 = scanner.next();
 		String item2 = scanner.next();
 		String item3 = scanner.next();
-		System.out.printf("You entered: --> \"%s,%s,%s\" <--%n", item1, item2, item3);
+		System.out.printf("You entered: --> \"%s, %s, %s\" <--%n", item1, item2, item3);
 
 	}
 }
