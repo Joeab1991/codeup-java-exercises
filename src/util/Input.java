@@ -27,24 +27,23 @@ public class Input {
 	//Allow all of your methods for getting input to accept an optional String parameter named prompt. If passed, the
 	// method should show the given prompt to the user before parsing the input.
 
-	private Scanner scanner = new Scanner(System.in);
+	private static Scanner scanner = new Scanner(System.in);
 
-	public String getString( ) {
+	public static String getString( ) {
 		String input = scanner.nextLine();
 		if (input.isBlank()) {
-			System.out.println("Please enter something.");
 			return getString();
 		} else {
 			return input;
 		}
 	}
 
-	public String getString(String prompt) {
+	public static String getString(String prompt) {
 		System.out.println(prompt);
 		return getString();
 	}
 
-	public boolean yesNo() {
+	public static boolean yesNo() {
 		String input = getString();
 		if (input.equalsIgnoreCase("y") || input.equalsIgnoreCase("yes")) {
 			return true;
@@ -56,12 +55,12 @@ public class Input {
 		}
 	}
 
-	public boolean yesNo(String prompt) {
+	public static boolean yesNo(String prompt) {
 		System.out.println(prompt);
 		return yesNo();
 	}
 
-	public int getInt(int min, int max) {
+	public static int getInt(int min, int max) {
 		int input = getInt();
 		while (input < min || input > max) {
 			System.out.println("Please enter a number between " + min + " and " + max + ".");
@@ -70,7 +69,7 @@ public class Input {
 		return input;
 	}
 
-	public int getInt() {
+	public static int getInt() {
 		while (!scanner.hasNextInt()) {
 			System.out.println("Please enter a valid number.");
 			scanner.next();
@@ -78,13 +77,13 @@ public class Input {
 		return scanner.nextInt();
 	}
 
-	public int getInt(String prompt, int min, int max) {
+	public static int getInt(String prompt, int min, int max) {
 		System.out.println(prompt);
 		return getInt(min, max);
 	}
 
 
-	public double getDouble(double min, double max) {
+	public static double getDouble(double min, double max) {
 		double input = getDouble();
 		while (input < min || input > max) {
 			System.out.println("Please enter a number between " + min + " and " + max + ".");
@@ -93,7 +92,7 @@ public class Input {
 		return input;
 	}
 
-	public double getDouble() {
+	public static double getDouble() {
 		while (!scanner.hasNextDouble()) {
 			System.out.println("Please enter a valid number.");
 			scanner.next();
@@ -101,7 +100,7 @@ public class Input {
 		return scanner.nextDouble();
 	}
 
-	public double getDouble(String prompt, double min, double max) {
+	public static double getDouble(String prompt, double min, double max) {
 		System.out.println(prompt);
 		return getDouble(min, max);
 	}

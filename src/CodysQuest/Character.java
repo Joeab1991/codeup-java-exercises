@@ -16,7 +16,16 @@ public abstract class Character {
 		this.xp = xp;
 	}
 
+
 	// Methods that all characters have
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
 
 	public abstract int attack();
 	public abstract int useItem();
