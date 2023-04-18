@@ -21,7 +21,7 @@ public class Person {
 	}
 
 	public static void main(String[] args){
-		Person person0 = new Person(RandomName.getName());
+		Person person0 = new Person(RandomName.getRandomName());
 		person0.sayHello();
 
 		Person person1 = new Person("John");

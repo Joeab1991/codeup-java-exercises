@@ -17,7 +17,7 @@ public class Main {
 		Fighter fighterDylan = new Fighter("Dylan");
 		fighterDylan.printStats();
 
-		Fighter randomFighter = new Fighter(RandomName.getName());
+		Fighter randomFighter = new Fighter(RandomName.getRandomName());
 		randomFighter.printStats();
 	}
 }

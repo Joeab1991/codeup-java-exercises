@@ -18,7 +18,7 @@ public class Main {
 		System.out.println("A new cat appears!\n");
 		cat2.printStats();
 
-		Cat cat3 = new Cat(RandomName.getName(), 2, "Sphynx", Temperment.getTemperment());
+		Cat cat3 = new Cat(RandomName.getRandomName(), 2, "Sphynx", Temperment.getTemperment());
 		cat3.meow();
 		System.out.println("A new cat appears!\n");
 		cat3.printStats();
