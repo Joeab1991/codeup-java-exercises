@@ -8,7 +8,7 @@ public class GameMap {
 	Graph gameMap = new Graph();
 
 	//create locations variables to be used in the graph
-	Location pedernlesClassroom;
+	Location pedernalesClassroom;
 	Location hallway;
 	Location enchantedRockSharkTank;
 	Location zenithLounge;
@@ -23,11 +23,11 @@ public class GameMap {
 
 	public GameMap() {
 		//create locations
-		pedernlesClassroom = new Location("Pedernales Classroom", "You are in the Pedernales Classroom. There is a desk in the front of the room with a computer on it. There is a door to the north.");
-		hallway = new Location("Hallway", "You are in the hallway. There is a door to the south and a door to the north.");
-		enchantedRockSharkTank = new Location("Enchanted Rock Shark Tank", "You are in the Enchanted Rock Shark Tank. There is a door to the south.");
-		zenithLounge = new Location("Zenith Lounge", "You are in the Zenith Lounge. There is a door to the south.");
-		bigBendClassroom = new Location("Big Bend Classroom", "You are in the Big Bend Classroom. There is a door to the south.");
+		pedernalesClassroom = new Location("Pedernales Classroom", "You are in the Pedernales Classroom. There is a desk in the front of the room with a computer on it. There is a door to the hallway.");
+		hallway = new Location("Hallway", "You are in the hallway. There many doors leading to various classrooms. You see a set of elevators at the end");
+		enchantedRockSharkTank = new Location("Enchanted Rock Shark Tank", "You are in the Enchanted Rock Shark Tank. You see a few desks where instructors work. There is a door to the hallway.");
+		zenithLounge = new Location("Zenith Lounge", "You are in the Zenith Lounge. You see a fridge, and a disturbing lack of microwaves.");
+		bigBendClassroom = new Location("Big Bend Classroom", "You are in the Big Bend Classroom. Nothing special here.");
 		bathroom = new Location("Bathroom", "You are in the bathroom. There is a door to the south.");
 		mustangIslandRoom = new Location("Mustang Island Room", "You are in the Mustang Island Room. There is a door to the south.");
 		blancoClassroom = new Location("Blanco Classroom", "You are in the Blanco Classroom. There is a door to the south.");
@@ -37,7 +37,7 @@ public class GameMap {
 		senatorJohnCornynsOffice = new Location("Senator John Cornyn's Office", "You are in Senator John Cornyn's Office. There is a door to the south.");
 
 		//add locations to the graph
-		gameMap.addLocation(pedernlesClassroom);
+		gameMap.addLocation(pedernalesClassroom);
 		gameMap.addLocation(hallway);
 		gameMap.addLocation(enchantedRockSharkTank);
 		gameMap.addLocation(zenithLounge);
@@ -51,8 +51,8 @@ public class GameMap {
 		gameMap.addLocation(senatorJohnCornynsOffice);
 
 		//add connections to the graph
-		gameMap.addConnection(pedernlesClassroom, hallway);
-		gameMap.addConnection(hallway, pedernlesClassroom);
+		gameMap.addConnection(pedernalesClassroom, hallway);
+		gameMap.addConnection(hallway, pedernalesClassroom);
 		gameMap.addConnection(hallway, enchantedRockSharkTank);
 		gameMap.addConnection(hallway, zenithLounge);
 		gameMap.addConnection(hallway, bigBendClassroom);
@@ -77,8 +77,8 @@ public class GameMap {
 	public void printMap() {
 		Set<Location> visited = new HashSet<>();
 		Queue<Location> queue = new LinkedList<>();
-		queue.offer(pedernlesClassroom);
-		visited.add(pedernlesClassroom);
+		queue.offer(pedernalesClassroom);
+		visited.add(pedernalesClassroom);
 
 		while (!queue.isEmpty()) {
 			Location current = queue.poll();

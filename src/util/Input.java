@@ -3,29 +3,31 @@ package util;
 import java.util.Scanner;
 
 public class Input {
-	//Create an input validation class
+	//Improve your Input class.
 	//
-	//Create a package inside of src named util. Inside of util, create a class named Input that has a private field
-	// named scanner. When an instance of this object is created, the scanner field should be set to a new instance of
-	// the Scanner class. The class should have the following methods, all of which return command line input from the user:
+	//Your getInt and getDouble methods should make sure that the value returned from the method is actually an int or
+	// a double. You can do this by replacing the use of the Scanner nextInt() and nextDouble() methods with the existing
+	// getString() method you created in a previous exercise using the following methods to convert the returned String
+	// into the desired datatype:
 	//
-	//String getString()
-	//boolean yesNo()
-	//int getInt(int min, int max)
-	//int getInt()
-	//double getDouble(double min, double max)
-	//double getDouble()
-	//The yesNo method should return true if the user enters y, yes, or variants thereof, and false otherwise.
 	//
-	//The getInt(int min, int max) method should keep prompting the user for input until they give an integer within the
-	// min and max. The getDouble method should do the same thing, but with decimal numbers.
-	//
-	//Create another class named InputTest that has a static main method that uses all the methods from the Input class.
+	//Integer.valueOf(String s);
+	//Double.valueOf(String s);
+	//Note these methods will throw a NumberFormatException if the given input cannot be parsed as an int or double.
+	// Your methods on the Input class should handle these exceptions, you can use a try-catch for this.
 	//
 	//Bonus
 	//
-	//Allow all of your methods for getting input to accept an optional String parameter named prompt. If passed, the
-	// method should show the given prompt to the user before parsing the input.
+	//Research the .valueOf method on the Integer class. You will find that it can also be used to parse integers in
+	// different bases. Use this functionality to create two new methods, getBinary and getHex that will accept a string
+	// that is a number in binary or hexadecimal.
+	//
+	//
+	//Enter a binary number: 111
+	//Your number is 7
+	//
+	//Enter a hexidecimal number: 10
+	//Your number is 16
 
 	private static Scanner scanner = new Scanner(System.in);
 
@@ -62,19 +64,24 @@ public class Input {
 
 	public static int getInt(int min, int max) {
 		int input = getInt();
-		while (input < min || input > max) {
-			System.out.println("Please enter a number between " + min + " and " + max + ".");
-			input = getInt();
+		try {
+			return input;
+		} catch (NumberFormatException e) {
+			while (input > max || input < min) {
+				System.out.println("Please enter a number between " + min + " and " + max + ".");
+				input = getInt();
+			}
 		}
 		return input;
 	}
 
 	public static int getInt() {
-		while (!scanner.hasNextInt()) {
+		try {
+			return Integer.parseInt(getString());
+		} catch (NumberFormatException e) {
 			System.out.println("Please enter a valid number.");
-			scanner.next();
+			return getInt();
 		}
-		return scanner.nextInt();
 	}
 
 	public static int getInt(String prompt, int min, int max) {
